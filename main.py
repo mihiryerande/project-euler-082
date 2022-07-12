@@ -19,9 +19,10 @@
 #      (right click and "Save Link/Target As..."), a 31K text file containing an 80 by 80 matrix.
 
 from numpy import inf
+from typing import List, Tuple
 
 
-def main(filename):
+def main(filename: str) -> Tuple[int, int, List[str]]:
     """
     Returns the minimal path sum in the given `filename`
       starting from any cell in the left-most column and
@@ -60,7 +61,7 @@ def main(filename):
     n = len(m)
 
     # Grid to keep track of minimal sub-path sum ending at that coordinate in matrix
-    trellis_sum = [[inf for _ in range(n)] for _ in range(n)]
+    trellis_sum: List[List[int]] = [[inf for _ in range(n)] for _ in range(n)]
     for i in range(n):
         trellis_sum[i][0] = m[i][0]
 
